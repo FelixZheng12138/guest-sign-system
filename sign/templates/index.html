@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     <title>django project</title>
   </head>
   <body>
-    <h1>发布会签到系统</h1>
-    <form class="" method="POST" action="/login_action/">
-      <input type="text" name="username" value=""><br>
-      <input type="password" name="password" value=""><br>
-      <button type="submit" name="btn">登陆</button>
-      <h2>{{error}}<h2><br>
-      <h2>{{debug}}<h2><br>
-      {% csrf_token %}
-  </form>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">发布会签到系统</a>
+      </div>
+    </nav>
+    <div class="page-header" style="padding-top: 80px">
+      <div class="navbar-collapse collapse" id="navbar">
+        <!-- <form class="navbar-form"> -->
+      <!-- <h1>发布会签到系统</h1> -->
+        <form class="navbar-form" method="POST" action="/login_action/">
+          账号：<input type="text" name="username" value=""><br>
+          密码：<input type="password" name="password" value=""><br>
+          <button type="submit" class="btn btn-success">login</button><br>
+          <font color = 'red'>
+            <h2>{{error}}<h2><br>
+          </font>
+          <!-- <h2>{{debug}}<h2><br> -->
+          {% csrf_token %}
+        </form>
+      </div>
+    </div>
   </body>
 </html>
